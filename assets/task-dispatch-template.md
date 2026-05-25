@@ -5,6 +5,7 @@
 ## Dispatch
 
 > Owner: Architect AI. Executor AI must not edit this section during execution unless the architect/user explicitly asks for a dispatch correction.
+> Fill only fields that are real for this task. Use `N/A`, `none`, or `missing evidence` instead of inventing gates, dimensions, scores, validation, or risks.
 
 ### Basics
 - **Task Name**: 
@@ -29,17 +30,21 @@ Before this task was dispatched, the architect AI verified:
 
 **If any gate check item failed, this task must be reframed or moved to backlog.**
 
+If the project has no T000, gate table, or scorecard, do not estimate values. Write `missing governance evidence` and use explicit ACs, board state, and user goals as temporary readiness criteria.
+
 ### Context Summary
 (max 200 words; reference files by path, do not paste code)
 
 ### Evaluation Impact
-(connect this task to the T000 scorecard; if no T000 exists, write the project dimension this task is meant to improve. Use 1-3 primary dimensions only.)
+(connect this task to the T000 scorecard. If no T000/scorecard exists, name only dimensions explicitly stated by the user or board; otherwise write `N/A - no scorecard exists yet`. Use 1-3 primary dimensions only.)
 
 | Dimension | Expected Capability Change | Evidence To Review | Score Update Candidate? |
 |-----------|----------------------------|--------------------|-------------------------|
 | | | | yes/no |
 
 **Non-goals for this task:** (name relevant scorecard dimensions this task deliberately does not try to improve)
+
+If there is no scorecard, write `N/A - no scorecard exists yet`; do not create one inside this task unless the dispatch explicitly asks for blueprint/board setup.
 
 ### Primary Files
 (required files; executor must focus here)
@@ -66,6 +71,8 @@ If this task modifies output layer, generator, data model, or cross-module contr
 - **Pass criteria**: 
 - **Command / script**: 
 - **Expected result**: 
+
+If this task does not touch these surfaces, write `N/A`. Do not invent an end-to-end validation ritual for a local, directly verifiable edit.
 
 ### Constraints
 - **Do NOT modify**: 
@@ -114,6 +121,8 @@ If this task modifies output layer, generator, data model, or cross-module contr
 | Dimension | AI Evidence | Human Review Needed | Suggested Score Effect |
 |-----------|-------------|---------------------|------------------------|
 | | | yes/no | no change / candidate increase / candidate decrease |
+
+Use `N/A` when the project has no scorecard or the task does not affect scorecard dimensions. Do not suggest score changes without concrete evidence.
 
 ### Changes Made
 | File | Change Type | Summary |

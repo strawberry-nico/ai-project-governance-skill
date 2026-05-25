@@ -4,6 +4,7 @@
 > Alternative: add this section to your project `README.md` or any existing doc
 > Default maintainer: architect AI; executor AI may update when explicitly asked
 > User should only need to point the architect AI to the board path
+> Keep this board short enough to be read every day. If it exceeds about 300 lines, run a slimming pass and archive old detail.
 
 ## Phase / Sprint: {{NAME}}
 
@@ -54,13 +55,13 @@ Track the phase gates defined in `tasks/T000-blueprint.md`. Only the architect A
 | | | not started / in progress / review / done | / | | conv / exp | `tasks/T001.md` |
 
 ## Active Context
-(what the executor is currently working on; executor may update this when explicitly asked, otherwise architect maintains it)
+(what the executor is currently working on; executor may update this when explicitly asked, otherwise architect maintains it; keep to 5 bullets max)
 
 ## Recent Decisions
-(architecture decisions from last 3 tasks; prevents re-discussion)
+(architecture decisions from last 3 tasks; prevents re-discussion; archive older decisions elsewhere)
 
 ## Up Next
-(top 3 upcoming tasks; populated by architect review after gate check)
+(top 3 upcoming tasks; populated by architect review after gate check; do not list the whole backlog)
 
 ## Document Hygiene
 (record periodic cleanup of old task files, stale docs, unused templates/evals, and archive moves)
@@ -68,3 +69,10 @@ Track the phase gates defined in `tasks/T000-blueprint.md`. Only the architect A
 | Date | Trigger | Action | Files / Folders | Notes |
 |------|---------|--------|-----------------|-------|
 | | | | | |
+
+## Board Size Guardrail
+
+- Soft limit: about 300 lines.
+- Hard trigger: more than 20 active/root task files, repeated stale status, or the user has to correct the same boundary twice.
+- Slimming target: current phase, active tasks, gate status, scorecard, execution rules, and handoff only.
+- Archive evidence; do not delete evidence by default.

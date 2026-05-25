@@ -4,6 +4,8 @@ Use this reference when the project has too many active task files, stale boards
 
 The goal is active-context weight loss, not prettier documentation.
 
+The progress board is meant to be read frequently. If it becomes too long to scan at the start of a task, it has become a token sink and should be compressed.
+
 ## File Lifecycle
 
 - Keep forever: the progress board file, default `tasks/progress-board.md`
@@ -32,6 +34,7 @@ Run a slimming pass when any of these happen:
 
 - Task root has more than 20 task files
 - Progress board exceeds about 300 lines
+- Progress board takes more than a quick scan to identify current phase, active tasks, gates, blockers, and allowed next work
 - README exceeds about 500 lines
 - Framework/status docs repeat the same phase narrative
 - A major phase closes
@@ -47,6 +50,15 @@ Run a slimming pass when any of these happen:
 4. Trim README to project purpose, run instructions, and current fact-source links
 5. Remove duplicated status narrative from framework docs
 6. Do not create a new explanatory document unless it replaces or shrinks an existing active document
+
+The compressed board should answer these in one pass:
+
+- What phase are we in?
+- What is active now?
+- What is blocked?
+- Which gates have passed or failed?
+- What work is allowed next?
+- What work must not be dispatched yet?
 
 ## Report Evidence
 

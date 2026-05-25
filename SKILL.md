@@ -47,6 +47,10 @@ Use lightweight execution when the work is local, low-risk, directly verifiable,
 
 For lightweight execution, do not create unnecessary task files. Make the change directly, verify it if needed, and summarize the outcome in chat or the relevant existing file.
 
+Use the lightweight path for small board/status hygiene too, when the update only records an already-verified fact and does not change task status, gate status, scorecard evidence, allowed next work, or execution coordination. Examples: fixing a typo in a board row, correcting a broken path, adding a missing date to an already accepted task, or noting a command result the user explicitly asked to record.
+
+If a request looks like governance but only needs a direct factual update, do the small update and say why full governance was not invoked.
+
 ## Core Rules
 
 1. **Files are the source of truth** — task details, reports, reviews, boards, and gates live in files, not pasted chat blocks.
@@ -68,6 +72,7 @@ For lightweight execution, do not create unnecessary task files. Make the change
 17. **Respect existing task formats** — read and maintain non-standard project task formats when they already exist; do not force-migrate old tasks unless the user asks or the migration is necessary for current evidence.
 18. **Do not invent missing scorecards** — if no T000/scorecard exists, do not make up dimension scores. Use ACs, board state, and user goals as temporary review criteria, and record that scorecard/gate evidence is missing.
 19. **Archive deliberately** — completed task cleanup and board slimming are governed by `references/document-maintenance.md`; never archive active or disputed evidence.
+20. **Use `N/A`, not fiction** — when a template field does not apply or evidence is missing, write `N/A`, `not applicable`, or `missing evidence`; do not fill governance tables with invented dimensions, gates, scores, risks, or validation results.
 
 Detailed gate, scorecard, architecture health, and debt rules live in `references/gates-scorecard.md`.
 
