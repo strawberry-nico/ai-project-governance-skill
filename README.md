@@ -6,6 +6,32 @@
 
 A project-governance protocol for AI agents. It helps keep long-running agentic projects aligned across task files, reports, reviews, and handoffs.
 
+## 30 秒版 / TL;DR
+
+如果你的 Agent 项目已经开始出现这些问题：
+
+- 任务越来越多，但不知道哪些真的验收了。
+- report 说完成，但没有证据。
+- 当前 bug 没修完，Agent 又派发新任务。
+- progress board 和真实代码/产物对不上。
+
+那就把这个仓库交给 Agent，并要求它：
+
+```text
+Read SKILL.md first.
+Choose Review, Reconcile, or Dispatch.
+Load the matching reference file.
+Do not invent missing project state.
+Do not create a new task when the current task only needs review or repair.
+```
+
+This is an anti-drift protocol for agentic projects:
+
+- Review evidence before accepting work.
+- Reconcile current drift before dispatching new work.
+- Dispatch only bounded tasks with scope, ACs, validation, and owner.
+- Keep project state in files, not chat memory.
+
 ## 这个 Skill 解决什么问题
 
 很多 AI 项目不是死在“不会写代码”，而是死在“越做越散”：
@@ -122,7 +148,15 @@ A project can have many task files and still be stuck in the foundation stage.
 
 这个仓库本质上是一组规则文件，不绑定某一个 Agent。
 
-如果你的 Agent 支持自定义 skills / rules / instructions：
+如果你的 Agent 支持自定义 skills / rules / instructions，可以任选一种接入方式：
+
+| 接入方式 | 怎么用 | 适合场景 |
+|----------|--------|----------|
+| System / Developer prompt | 把 `SKILL.md` 作为长期规则加载 | 你能控制 Agent 的系统级提示词 |
+| Repo-local rules | 把本仓库放到项目里，让 Agent 先读 `SKILL.md` | 多个 Agent 在同一个项目里协作 |
+| Skill / plugin folder | 放进 Agent 的 skills 目录 | Codex、Claude Code 或其他支持技能目录的工具 |
+
+最低要求：
 
 1. 下载或 clone 这个仓库。
 2. 让 Agent 把 `SKILL.md` 当作入口规则。
@@ -143,7 +177,13 @@ Do not invent missing project state.
 
 This repository is a set of agent rules. It is not tied to one runtime.
 
-For any agent system that supports custom instructions, skills, or rule files:
+For any agent system that supports custom instructions, skills, or rule files, use one of these patterns:
+
+| Pattern | How | Best For |
+|---------|-----|----------|
+| System / developer prompt | Load `SKILL.md` as standing instructions | You control the agent's prompt stack |
+| Repo-local rules | Put this repo inside the project and tell agents to read `SKILL.md` first | Multi-agent project work |
+| Skill / plugin folder | Install this repo into the agent's skill directory | Codex, Claude Code, or skill-aware tools |
 
 1. Clone or download this repository.
 2. Use `SKILL.md` as the entrypoint instruction.
@@ -169,6 +209,50 @@ git clone https://github.com/strawberry-nico/ai-project-governance-skill.git ~/.
 ```
 
 Then restart Codex or reload skills if needed.
+
+## 跑偏前后对比 / Before And After
+
+不用这个 skill 时，常见对话会变成这样：
+
+```text
+User: T012 好像没做好，继续下一步吧。
+Agent: 好的，我来派发 T013。
+```
+
+问题：T012 没验收，drift 没修，T013 建在不稳定基础上。
+
+使用这个 skill 后，Agent 应该这样处理：
+
+```text
+User: T012 好像没做好，继续下一步吧。
+Agent: 这不是 Dispatch，先进入 Reconcile。
+       我会检查 T012 的 AC、Report、progress-board 和相关证据。
+       如果问题在 T012 范围内，先修 T012，不创建 T013。
+```
+
+另一个例子：
+
+```text
+User: 派发下一个功能。
+Agent: 进入 Dispatch，但先做 readiness/gate check。
+       当前 F1 gate 没过，不能派 expansion。
+       可以派一个 convergence 任务来补 schema validation evidence。
+```
+
+Without this skill:
+
+```text
+User: T012 seems incomplete. Move on to the next task.
+Agent: Sure, I will dispatch T013.
+```
+
+With this skill:
+
+```text
+Agent: This should be Reconcile first.
+       I need to review T012 ACs, report evidence, board status, and related artifacts.
+       If the issue is inside T012 scope, repair T012 before creating T013.
+```
 
 ## 快速使用
 
