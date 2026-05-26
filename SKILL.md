@@ -65,14 +65,15 @@ If a request looks like governance but only needs a direct factual update, do th
 10. **Declare coordination** — every dispatch round must state owner, parallel/sequential safety, dependencies, and execution order.
 11. **Abort on blocker loops** — executor stops after 3 consecutive attempts against the same blocker/failure mode and writes the report.
 12. **External writes need authorization** — pushes, publishing, account settings, production sync, and third-party CRUD require explicit user or project-file approval.
-13. **Architecture health matters** — code-changing tasks must review coupling, cohesion, code smells, and testability before being accepted.
-14. **Separate evidence from opinion** — AI evidence covers implementation, tests, logs, diffs, screenshots, and artifacts; human evidence covers usefulness, taste, trust, market fit, and workflow fit.
-15. **No opportunistic adjacent edits by default** — adjacent cleanup must be explicitly allowed and reported.
-16. **Do not revive legacy paths silently** — archived tasks, obsolete fields, deleted shells, and old scripts stay inactive unless compatibility requires them.
-17. **Respect existing task formats** — read and maintain non-standard project task formats when they already exist; do not force-migrate old tasks unless the user asks or the migration is necessary for current evidence.
-18. **Do not invent missing scorecards** — if no T000/scorecard exists, do not make up dimension scores. Use ACs, board state, and user goals as temporary review criteria, and record that scorecard/gate evidence is missing.
-19. **Archive deliberately** — completed task cleanup and board slimming are governed by `references/document-maintenance.md`; never archive active or disputed evidence.
-20. **Use `N/A`, not fiction** — when a template field does not apply or evidence is missing, write `N/A`, `not applicable`, or `missing evidence`; do not fill governance tables with invented dimensions, gates, scores, risks, or validation results.
+13. **Autonomy stays inside boundaries** — permission automation and fewer prompts are useful only inside explicit task scope, allowed files, ACs, verification, abort conditions, and external-impact gates.
+14. **Architecture health matters** — code-changing tasks must review coupling, cohesion, code smells, and testability before being accepted.
+15. **Separate evidence from opinion** — AI evidence covers implementation, tests, logs, diffs, screenshots, and artifacts; human evidence covers usefulness, taste, trust, market fit, and workflow fit.
+16. **No opportunistic adjacent edits by default** — adjacent cleanup must be explicitly allowed and reported.
+17. **Do not revive legacy paths silently** — archived tasks, obsolete fields, deleted shells, and old scripts stay inactive unless compatibility requires them.
+18. **Respect existing task formats** — read and maintain non-standard project task formats when they already exist; do not force-migrate old tasks unless the user asks or the migration is necessary for current evidence.
+19. **Do not invent missing scorecards** — if no T000/scorecard exists, do not make up dimension scores. Use ACs, board state, and user goals as temporary review criteria, and record that scorecard/gate evidence is missing.
+20. **Archive deliberately** — completed task cleanup and board slimming are governed by `references/document-maintenance.md`; never archive active or disputed evidence.
+21. **Use `N/A`, not fiction** — when a template field does not apply or evidence is missing, write `N/A`, `not applicable`, or `missing evidence`; do not fill governance tables with invented dimensions, gates, scores, risks, or validation results.
 
 Detailed gate, scorecard, architecture health, and debt rules live in `references/gates-scorecard.md`.
 

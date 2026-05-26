@@ -32,6 +32,10 @@ This is an anti-drift protocol for agentic projects:
 - Dispatch only bounded tasks with scope, ACs, validation, and owner.
 - Keep project state in files, not chat memory.
 
+It is not just an "auto mode" or permission-skipping workflow. More autonomy is useful only when the agent is running inside clear task boundaries.
+
+它不是单纯的“自动模式”或“少点几次确认”。自动执行只有在任务边界、AC、验证方式、停止条件和外部影响 gate 都清楚时才有价值。
+
 ## 这个 Skill 解决什么问题
 
 很多 AI 项目不是死在“不会写代码”，而是死在“越做越散”：
@@ -61,6 +65,20 @@ Many AI projects do not fail because agents cannot code. They fail because the p
 - handoffs between agents blur scope, status, and acceptance criteria
 
 This skill gives agents a file-backed operating protocol for those moments.
+
+## 和 Auto Mode / 自动执行的关系
+
+Claude Code、Codex 或其他 Agent 的自动执行能力可以减少打断，但它解决的是“执行顺不顺”的问题，不解决“该不该继续做、做到哪算完成、有没有跑偏”的问题。
+
+这个 skill 的定位是给自动执行铺轨道：
+
+- 自动执行可以在明确任务范围内更少打断。
+- 超出 allowed files、AC、验证方法、外部写入边界时必须停。
+- 没有 evidence 不说 done。
+- 当前任务没验收或没纠偏，不默认派发新任务。
+- progress-board 要反映真实状态，不是乐观摘要。
+
+Auto mode can reduce interruptions, but it does not decide whether the project should move forward. This skill gives automated agents a governance track: scope, ACs, validation, stop conditions, review, reconcile, and project-state integrity.
 
 ## 适合谁用
 
